@@ -15,6 +15,9 @@ public class HomeWorkApp {
         fillDiagonalElements();
         System.out.println(Arrays.toString(getArray(5, 42)));
         findMinMaxElements();
+
+        int[] arrForCheckBalance = {1, 1, 1, 2, 1};
+        checkBalance(arrForCheckBalance);
     }
 
     // 1
@@ -93,5 +96,25 @@ public class HomeWorkApp {
         System.out.println("Minimal element : " + minElement);
         System.out.println("Maximal element : " + maxElement);
         System.out.println("From array :\n" + Arrays.toString(arr));
+    }
+
+    // 7
+    private static boolean checkBalance(int[] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            int leftSum = 0;
+            int rightSum = 0;
+            for (int j = 0; j < i; j ++) {
+                leftSum += arr[j];
+            }
+            for (int j = i; j < arr.length; j++) {
+                rightSum += arr[j];
+            }
+            if (leftSum == rightSum) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
